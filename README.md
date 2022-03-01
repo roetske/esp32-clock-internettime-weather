@@ -38,7 +38,7 @@ line3 scrolling text weatherinfo from openweather.org
       
 remark:
 -------
-You can eliminate get time from pool
+You can eliminate get time from pool.org.
 Time is also given by openweather in epoch time.
 To get openweather data you need to register its free. 
       You can also test response openweather by sending request http
