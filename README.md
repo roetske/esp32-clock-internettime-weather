@@ -14,7 +14,7 @@ description function
 
 when started up esp32 creates accesspoint eps32ap to choose wifi ssid and set paswword
 you open wifi accesspoint with your cellphone and choose your ssid you want to connect and set password
-no more compiling needed to change ssid and pasword when it changes. Ones set your ssid and password are
+no more compiling needed to change ssid and pasword when it changes. Once set your ssid and password are
 stored in esp32.
 
 2)time winter/summer hour is automatically adjusted
