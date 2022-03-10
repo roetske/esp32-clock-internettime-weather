@@ -6,13 +6,13 @@ function description
 row 0 date
 row 1 - row2 time in big letters - winterhour summerhour automatically set
 row 3 scrolling current weather from openweather.org 
-does not work with wifi ac !! a-b-g-n works
+does not work with wifi ac only!! agbn works
 polling data from openweather in json document is done dynamic
 main advantage json format is that you 
 can process the data very fast see code
 
 wifi trough autoconnect lib in arduino
-when no wifi sets creates access point esp32ap => select wifi access point  with your phone
+when no wifi sets creates access point esp32ap => select wifi access point  with you phone
 you get connect webpage where you select your ssid and set password
 ssid and password is automatically set in flash by autoconnect
 
@@ -81,11 +81,8 @@ server 3.europe.pool.ntp.org
 
 openweather api key get by registring its free
 you can test response openweahter by doing httpss request option metric
-get apikey from openwheater its free and get your city and country then you can
-https://api.openweathermap.org/data/2.5/weather?q=Gent,BE&units=metric&PT&APPID=<my apikey>
-https://api.openweathermap.org/data/2.5/weather?q=<your city>,<country>&units=metric&PT&APPID=<your apikey>
-this is string response from https or http request from openweather in json standard set to metric
-
+https://api.openweathermap.org/data/2.5/weather?q=Gent,BE&units=metric&PT&APPID=d301b027de9432c915fda2d1b10753e3
+this is string from openweather in json standard set to metric
 {"coord":{"lon":3.7167,"lat":51.05}
 ,"weather":[{"id":802,"main":"Clouds","description":"scattered clouds","icon":"03n"}]   --searche for hours could not get weather because of [0] see code
 ,"base":"stations"
@@ -94,8 +91,6 @@ this is string response from https or http request from openweather in json stan
 ,"clouds":{"all":25},"dt":1645575617 ==epochtijd
 ,"sys":{"type":2,"id":2011240,"country":"BE","sunrise":1645598570,"sunset":1645636473}
 ,"timezone":3600,"id":2797656,"name":"Ghent","cod":200}
-
-json format enables you to acces data very quickly
 comments:
 2 libs in conflict time.h en Time.h last was the good one
 refreshing lcd is slow made own clear
@@ -191,7 +186,7 @@ void setup()
    Wire.begin(sda,scl); // set pin comm i2c
    //Wire.setClock(400000);//i2c speed
    init_create();//init lcd and create templ char for big numbers
-   delay(500);
+   delay(1000);
    clearall();
    delay(1000);
    //bootscreen
@@ -225,6 +220,7 @@ void setup()
     getWeatherData();    
     //debug
     clearall();
+    delay(1000);
     lcd.setCursor(0,0);
     datestringtime =rtc.getTime("%H:%M");
     datestringdatum =rtc.getDate();
