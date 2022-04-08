@@ -4,7 +4,7 @@ esp32 project with lcd 20x4 =>clock internettime automatic update summer/wintert
 hardware
 --------
 esp32 -lcd 20x4 with i2c piggyback
-optional levelconverter 3.3v to 5v
+optional levelconverter 3.3v to 5v (recommended use it for your i2c com with lcd)
 
 remark: power lcd with 5v 3.3v is not sufficient for lcd.
 ----------------------------------
