@@ -1,22 +1,24 @@
 void getWeatherData() //client function to send/receive GET request data.
 { initweatherstr();
+  messageactive =false; //set true when ok
   if (WiFi.status() != WL_CONNECTED)  //starts client connection, checks for connection
 	 {  Serial.println("No wifi -to get wheather");
       return;
    }
    //ready to get data from weather.org 
-   //json
-   DynamicJsonDocument doc(1024);
+   
    HTTPClient http;  
    http.begin("https://api.openweathermap.org/data/2.5/weather?q=Gent,BE&units=metric&PT&APPID=d301b027de9432c915fda2d1b10753e3");
    int httpCode = http.GET();  // send the request
    Serial.println("response openweather");
+   Serial.print("HttpCode:");
    Serial.println(httpCode);
-  
-   if (httpCode > 0) // check the returning code
+  //json
+   DynamicJsonDocument doc(1024);
+   if (httpCode == 200) // check the returning code
 	  { 
       String payload = http.getString();   //Get the request response payload
-     
+      
       // Parse JSON object
       DeserializationError error = deserializeJson(doc, payload);
       if (error) 
@@ -24,11 +26,22 @@ void getWeatherData() //client function to send/receive GET request data.
         //debug
         Serial.print("Deserialization failed with code: ");
         Serial.println(error.c_str());
-        initweatherstr();
+        clearline(3);
+        lcd.print(error.c_str());
         http.end();//close connection
+        doc.clear();
         return;
        }
+    }
+    else
+    {//bad response
+      Serial.print("Bad response http ");
+      http.end();
+      doc.clear();
+      clearline(3);
+      return;
     }  
+    
     http.end();   //Close connection
     serializeJson(doc, Serial);
     //verder
@@ -66,16 +79,20 @@ void getWeatherData() //client function to send/receive GET request data.
     Serial.println(tmp);
     Serial.println (hp);
     Serial.println (wnd);
+    //all ok scroll 
+    messageactive =true;
+    //nw approach clear doc for memory leaks
+    doc.clear();
     // Clean the document is memory pool is over 80% of its capacity
-    if (doc.memoryUsage() > doc.capacity() * 4 / 5)
-      {
-        doc.garbageCollect();
-      }  
+    // if (doc.memoryUsage() > doc.capacity() * 4 / 5)
+    //   {
+    //     doc.garbageCollect();
+    //   }  
 }
 
 //weather
 void initweatherstr()
-{ wthr = "";//weahterstring
+{ wthr = "";//weatherstring
   tmp  = "";//tempstring
   hp   = "";//hum and pr
   wnd  =  "";//wind

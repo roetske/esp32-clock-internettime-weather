@@ -305,11 +305,11 @@ void bigfont_time()
   time_t t = now();
   int uur = hour(t);
   int minuten = minute(t);
-  //Serial.println("");
-  //Serial.println("tijd:");
-  //Serial.print(uur);
-  //Serial.print(":");
-  //Serial.print(minuten);
+  Serial.println("");
+  Serial.println("tijd:");
+  Serial.print(uur);
+  Serial.print(":");
+  Serial.print(minuten);
   int onesH = (uur%10);
   int tensH = ((uur/10)%10);
   int onesM = (minuten%10);

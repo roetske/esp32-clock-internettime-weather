@@ -122,7 +122,7 @@ LiquidCrystal_I2C lcd(0x27, 20, 4); //adress colums and rows
 //i2c ports for you lcd gpio21 gpio22
 #define sda 21
 #define scl 22
-const char *version = "v1";
+const char *version = "v16";
 
 //autoconnect
 WebServer Serverroetske;//lol
@@ -173,6 +173,7 @@ String tmp  = "";//tempstring
 String hp  = "";//hum and pr
 String wnd  =  "";//wind
 bool bnowifi = false;
+bool messageactive = false;
 //**************************************************************************
 //setup
 //**************************************************************************
@@ -258,7 +259,7 @@ void loop()
   
   Portal.handleClient();
   //scroll weather line 3
-  if (refreshscroll >= scroll)
+  if (refreshscroll >= scroll and messageactive)
      { int a = counterscrollmessage;
        String message = "";
        if (a >=5)
@@ -318,11 +319,7 @@ void loop()
         //reset scan
        scanauto = 0;
   }
-  if (i2c_scan > 1000)
-    { 
-      i2c_active(a_lcd);
-      i2c_scan = 0;
-    }
+  
   f_heartbeat();
   //show_bigfont_show_all();
 }
