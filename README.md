@@ -49,6 +49,7 @@ To get openweather data you need to register its free.
       See code i have added string example in main code.
 First time or with reset you need wifi. Once set if wifi is lost clock 
 still working. (as long that you do no reset with power or reset button)
+
 issues:
 -------
 first runs got esp stuck after x hours. restart ok
