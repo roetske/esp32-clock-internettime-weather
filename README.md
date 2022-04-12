@@ -55,7 +55,8 @@ issues:
 -------
 first runs got esp stuck after x hours. restart ok
 did not find real cause error
-no stable after code improvements
+now stable after code improvements
 see issues tab github.
+
 
 
