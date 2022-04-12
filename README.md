@@ -15,7 +15,7 @@ description function
 ---------------------
 1)settings wifi automatic with autoconnect
 
-when started up esp32 creates accesspoint eps32ap to choose wifi ssid and set paswword
+when started up esp32 creates accesspoint esp32ap to choose wifi ssid and set paswword
 you open wifi accesspoint with your cellphone and choose your ssid you want to connect and set password
 no more compiling needed to change ssid and pasword when it changes. Once set your ssid and password are
 stored in esp32.
