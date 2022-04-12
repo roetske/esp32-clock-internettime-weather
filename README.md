@@ -53,10 +53,11 @@ Also it tries to reconnect to wifi automatically.
 
 issues:
 -------
-first runs got esp stuck after x hours. restart ok
-did not find real cause error
-now stable after code improvements
-see issues tab github.
+First runs got esp stuck after x hours. restart ok.
+Did not find real cause error. What was sure esp stuck.
+Now stable after code improvements
+See issues tab github.
+
 
 
 
