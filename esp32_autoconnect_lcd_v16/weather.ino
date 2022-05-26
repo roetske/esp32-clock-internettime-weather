@@ -8,7 +8,7 @@ void getWeatherData() //client function to send/receive GET request data.
    //ready to get data from weather.org 
    
    HTTPClient http;  
-   http.begin("https://api.openweathermap.org/data/2.5/weather?q=Gent,BE&units=metric&PT&APPID=d301b027de9432c915fda2d1b10753e3");
+   http.begin("https://api.openweathermap.org/data/2.5/weather?q=Gent,BE&units=metric&PT&APPID="your unique code subscription openweahter");
    int httpCode = http.GET();  // send the request
    Serial.println("response openweather");
    Serial.print("HttpCode:");
