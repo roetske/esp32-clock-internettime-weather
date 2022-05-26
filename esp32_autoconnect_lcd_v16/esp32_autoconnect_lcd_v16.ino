@@ -81,7 +81,7 @@ server 3.europe.pool.ntp.org
 
 openweather api key get by registring its free
 you can test response openweahter by doing httpss request option metric
-https://api.openweathermap.org/data/2.5/weather?q=Gent,BE&units=metric&PT&APPID=d301b027de9432c915fda2d1b10753e3
+https://api.openweathermap.org/data/2.5/weather?q=Gent,BE&units=metric&PT&APPID=your uinque key from openweather
 this is string from openweather in json standard set to metric
 {"coord":{"lon":3.7167,"lat":51.05}
 ,"weather":[{"id":802,"main":"Clouds","description":"scattered clouds","icon":"03n"}]   --searche for hours could not get weather because of [0] see code
